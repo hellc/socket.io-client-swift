@@ -121,7 +121,7 @@ open class SocketEngine : NSObject, URLSessionDelegate, SocketEnginePollable, So
     public private(set) var ws: WebSocket?
 
     /// The client for this engine.
-    public private(set) client: SocketEngineClient?
+    public private(set) var client: SocketEngineClient?
 
     private weak var sessionDelegate: URLSessionDelegate?
 
