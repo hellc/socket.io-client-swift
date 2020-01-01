@@ -121,7 +121,7 @@ open class SocketEngine : NSObject, URLSessionDelegate, SocketEnginePollable, So
     public private(set) var ws: WebSocket?
 
     /// The client for this engine.
-    public weak var client: SocketEngineClient?
+    public private(set) client: SocketEngineClient?
 
     private weak var sessionDelegate: URLSessionDelegate?
 
@@ -347,6 +347,8 @@ open class SocketEngine : NSObject, URLSessionDelegate, SocketEnginePollable, So
     private func _disconnect(reason: String) {
         guard connected && !closed else { return closeOutEngine(reason: reason) }
 
+        self.client = nil
+        
         DefaultSocketLogger.Logger.log("Engine is being closed.", type: SocketEngine.logType)
 
         if polling {

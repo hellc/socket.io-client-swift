@@ -31,7 +31,7 @@ import Starscream
     // MARK: Properties
 
     /// The client for this engine.
-    var client: SocketEngineClient? { get set }
+    var client: SocketEngineClient? { get }
 
     /// `true` if this engine is closed.
     var closed: Bool { get }
